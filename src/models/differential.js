@@ -4,7 +4,8 @@ const differentialSchema = new mongoose.Schema({
   id: { type: mongoose.Schema.Types.ObjectId },
   title: { type: String },
   description: { type: String },
-  button: { type: String }
+  button: { type: String },
+  src: { type: String }
 })
 
 const differential = mongoose.model("differential", differentialSchema)
