@@ -1,6 +1,10 @@
 import express from 'express'
+import cors from 'cors'
 import conectDataBase from './config/dbConect.js'
 import routers from './routes/index.js'
+
+const app = express()
+app.use(cors());
 
 const conexao = await conectDataBase()
 
@@ -12,7 +16,9 @@ conexao.once("open", () => {
   console.log("Conexão com o banco de dados realizada com sucesso!")
 })
 
-const app = express()
+
+app.use('/uploads', express.static('src/uploads'));
+
 routers(app)
 
 export default app
