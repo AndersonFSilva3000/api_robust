@@ -5,6 +5,7 @@ import routers from './routes/index.js'
 
 const app = express()
 app.use(cors());
+app.use('/uploads', express.static('src/uploads'));
 
 const conexao = await conectDataBase()
 
@@ -17,7 +18,6 @@ conexao.once("open", () => {
 })
 
 
-app.use('/uploads', express.static('src/uploads'));
 
 routers(app)
 
