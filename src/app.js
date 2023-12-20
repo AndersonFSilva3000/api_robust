@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import conectDataBase from './config/dbConect.js'
-import routers from './routes/index.js'
+import routes from './routes/index.js'
 
 const app = express()
 app.use(cors());
@@ -19,6 +19,6 @@ conexao.once("open", () => {
 
 
 
-routers(app)
+routes(app)
 
 export default app
